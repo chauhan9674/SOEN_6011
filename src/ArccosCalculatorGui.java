@@ -151,7 +151,7 @@ public class ArccosCalculatorGui extends JFrame {
    * @param x The number to compute the arccosine of, in the range [-1, 1].
    * @return The arccosine of x in radians.
    */
-  private static double computeArccos(final double x) {
+  public static double computeArccos(final double x) {
     if (x == 1.0) {
       return 0.0;
     }
