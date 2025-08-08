@@ -57,26 +57,37 @@ public class ArccosCalculatorGui extends JFrame {
     resultArea.setLineWrap(true);
     resultArea.setWrapStyleWord(true);
 
+    // --- UI PRINCIPLE IMPROVEMENT: ADDING TOOLTIPS ---
+    inputField.setToolTipText("Enter a numeric value between -1 and 1");
+    // --- END OF UI PRINCIPLE IMPROVEMENT ---
+
     // --- Accessibility Setup ---
     inputField.getAccessibleContext().setAccessibleName("Input value for arccos");
     inputField
         .getAccessibleContext()
-        .setAccessibleDescription("Enter a number between -1 and 1");
+        .setAccessibleDescription("Enter a number between negative 1 and 1.");
+    resultArea.getAccessibleContext().setAccessibleName("Calculation Result");
 
     // --- Layout and Event Listener Setup ---
     JPanel inputPanel = new JPanel(new FlowLayout());
     inputPanel.add(new JLabel("Enter x [-1 to 1]:"));
     inputPanel.add(inputField);
 
-    // CHANGED: Declaration moved closer to usage.
     JButton computeButton = new JButton("Compute arccos(x)");
-    computeButton.getAccessibleContext().setAccessibleName("Compute");
+
+    // --- UI PRINCIPLE IMPROVEMENT: ADDING TOOLTIPS ---
+    computeButton.setToolTipText("Click to calculate the arccosine of the entered value");
+    // --- END OF UI PRINCIPLE IMPROVEMENT ---
+
+    // --- Accessibility Setup for Button ---
+    computeButton.getAccessibleContext().setAccessibleName("Compute Button");
+    computeButton.getAccessibleContext().setAccessibleDescription("Calculates the arccosine of the entered value.");
+
     computeButton.addActionListener(
         e -> computeResult());
     inputPanel.add(computeButton);
 
     JPanel resultPanel = new JPanel(new BorderLayout());
-    // CHANGED: Declaration moved closer to usage.
     JScrollPane scrollPane = new JScrollPane(resultArea);
     resultPanel.add(scrollPane, BorderLayout.CENTER);
 
