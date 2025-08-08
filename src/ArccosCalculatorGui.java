@@ -87,6 +87,10 @@ public class ArccosCalculatorGui extends JFrame {
         e -> computeResult());
     inputPanel.add(computeButton);
 
+    // Set the compute button as the default button for the frame.
+    // This allows the Enter key to trigger it.
+    this.getRootPane().setDefaultButton(computeButton);
+
     JPanel resultPanel = new JPanel(new BorderLayout());
     JScrollPane scrollPane = new JScrollPane(resultArea);
     resultPanel.add(scrollPane, BorderLayout.CENTER);
